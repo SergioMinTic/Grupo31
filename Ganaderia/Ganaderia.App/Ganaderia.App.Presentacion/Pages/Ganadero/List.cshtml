@@ -3,3 +3,25 @@
 @{
 }
 <h1>Listado de ganaderos</h1>
+
+
+<table class="table">
+    <tr class="table-success">
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+    </tr>
+
+    @foreach (var ganadero in Model.Ganaderos)
+    {
+        <tr class="bg-primary">
+            <td>@ganadero.Nombres</td>
+            <td>@ganadero.Apellidos</td>
+            <td>@ganadero.Correo</td>
+        </tr>
+    }
+
+
+
+
+</table>
