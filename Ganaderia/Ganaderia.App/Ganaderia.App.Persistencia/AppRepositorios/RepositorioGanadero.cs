@@ -1,5 +1,6 @@
 using System;
 using Ganaderia.App.Dominio;
+using System.Linq;
 
 namespace Ganaderia.App.Persistencia
 {
@@ -15,6 +16,17 @@ namespace Ganaderia.App.Persistencia
         {
             _appContext.Ganaderos.Add(ganadero);
             _appContext.SaveChanges();
+        }
+
+        void IRepositorioGanadero.DeleteGanadero(int idGanadero)
+        {
+            var ganaderoEncontrado = _appContext.Ganaderos.FirstOrDefault(g => g.Id == idGanadero);
+
+            if (ganaderoEncontrado != null) 
+            {
+                _appContext.Ganaderos.Remove(ganaderoEncontrado);
+                _appContext.SaveChanges();
+            }
         }
 
     } 
