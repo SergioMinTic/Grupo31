@@ -1,4 +1,5 @@
 using Ganaderia.App.Dominio;
+using System.Collections.Generic;
 
 namespace Ganaderia.App.Persistencia
 {
@@ -7,5 +8,9 @@ namespace Ganaderia.App.Persistencia
        void AddGanadero(Ganadero ganadero);
 
        void DeleteGanadero(int idGanadero);
+
+       IEnumerable<Ganadero> GetAllGanaderos();
+
+       Ganadero GetGanadero(int idGanadero);
     }
 }
