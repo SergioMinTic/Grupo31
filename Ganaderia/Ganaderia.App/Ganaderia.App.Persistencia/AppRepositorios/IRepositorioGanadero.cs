@@ -12,5 +12,7 @@ namespace Ganaderia.App.Persistencia
        IEnumerable<Ganadero> GetAllGanaderos();
 
        Ganadero GetGanadero(int idGanadero);
+
+       Ganadero GetLogin(string correo, string contrasena);
     }
 }

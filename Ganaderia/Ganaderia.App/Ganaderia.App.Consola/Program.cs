@@ -13,13 +13,13 @@ namespace Ganaderia.App.Consola
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            // AddGanadero();
+            AddGanadero();
             // AddVeterinario();
             // AddGanado();
             // AsignarVeterinarioAGanado();
             // AddGanadoVacunasVeterinario();
             // DeleteGanadero(1);
-            GetAllVeterinarios();
+            // GetAllVeterinarios();
         }
 
         private static void AddGanadero()
@@ -29,7 +29,7 @@ namespace Ganaderia.App.Consola
                 Nombres = "Sergio",
                 Apellidos = "Moreno",
                 NumeroTelefono = "3148596562",
-                Correo = "sergiomintic@mintic.edu.co",
+                Correo = "sergio@sergio.co",
                 Contrasena = "123456",
                 Latitud = 4554,
                 Longitud = 5454

@@ -30,7 +30,7 @@ namespace Ganaderia.App.Presentacion.Pages
 
         public void OnPostDel(int id)
         {
-            if (id != null)
+            if (id > 0)
             {
                 ganaderoEliminado = _repositorioGanadero.GetGanadero(id);
                 Console.WriteLine("Nombre: " + ganaderoEliminado.Nombres);

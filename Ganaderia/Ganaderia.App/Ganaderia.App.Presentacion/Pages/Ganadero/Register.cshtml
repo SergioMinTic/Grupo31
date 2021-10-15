@@ -2,43 +2,68 @@
 @model Ganaderia.App.Presentacion.Pages.RegisterModel
 @{
 }
-<h2>Registro de ganadero</h2>
+<h2>Registro de ganaderos</h2>
 
-<form>
-    <div class="form-row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Nombres">
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Apellidos">
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Numero de telefono">
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Correo">
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Contraseña">
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Repita contraseña">
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Latitud">
-        </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Longitud">
-        </div>
-    </div>
+<table class="table">
+  <tr class="table-success">
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Correo</th>
+    <th>Acción</th>
+  </tr>
 
-    <button type="button" class="btn btn-success">Registrarse</button>
+  <form method="post">
+    @foreach (var ganadero in Model.Ganaderos)
+    {
+      <tr class="bg-primary">
+        <td>@ganadero.Nombres</td>
+        <td>@ganadero.Apellidos</td>
+        <td>@ganadero.Correo</td>
+        <td>
+          <button type="submit" class="btn btn-danger" asp-page-handler="Del"
+          asp-route-id="@ganadero.Id">Eliminar</button>
+        </td>
+      </tr>
+    }
+  </form>
+</table>
+
+
+<form method="post">
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Nombres" name="Nombres">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Apellidos" name="Apellidos">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Numero de telefono" name="NumeroTelefono">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Correo" name="Correo">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Contraseña" name="Contrasena">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Repita contraseña">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Latitud" name="Latitud">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Longitud" name="Longitud">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success" asp-page-handler="Add">Registrarse</button>
 </form>
 
 
@@ -50,7 +75,7 @@
     <div class="col">
       2 of 3 (wider)
     </div>
-    
+
   </div>
   <div class="row">
     <div class="col">

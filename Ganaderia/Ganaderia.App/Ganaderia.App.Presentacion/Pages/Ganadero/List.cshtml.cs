@@ -11,7 +11,9 @@ namespace Ganaderia.App.Presentacion.Pages
     public class ListModel : PageModel
     {
         public List<Ganadero> Ganaderos { get; set; }
-        public void OnGet()
+
+        public string usuario;
+        public IActionResult OnGet()
         {
             var ganadero = new Ganadero
             {
@@ -76,6 +78,16 @@ namespace Ganaderia.App.Presentacion.Pages
             Ganaderos.Add(ganadero3);
             Ganaderos.Add(ganadero4);
             Ganaderos.Add(ganadero5);
+
+            usuario = Request.Cookies["nombre"];
+
+            if (usuario == null) {
+                return Redirect("../");
+            }
+
+            return Page();
+
+            Console.WriteLine("Nombre login: " + usuario);
         }
     }
 }

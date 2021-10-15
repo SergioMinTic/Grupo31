@@ -40,5 +40,10 @@ namespace Ganaderia.App.Persistencia
             return _appContext.Ganaderos.FirstOrDefault(g => g.Id == idGanadero);
         }
 
+        Ganadero IRepositorioGanadero.GetLogin(string correo, string contrasena)
+        {
+            return _appContext.Ganaderos.FirstOrDefault(g => g.Correo == correo && g.Contrasena == contrasena);
+        }
+
     } 
 }
